@@ -12,11 +12,13 @@ members = [
     "queue_topic",
     "transport",
     "node",
-#    "worker",
     "xeddsa",
     "c/generate_bindings",
     "c/bindings",
     "c/rust_memory",
+    "message_router",
+    "tcp_manager",
+    "worker_manager",
 ]
 
 default-members = [
@@ -31,8 +33,10 @@ default-members = [
     "queue_topic",
     "transport",
     "node",
-#    "worker",
     "xeddsa",
     "c/bindings",
     "c/rust_memory",
+    "message_router",
+    "tcp_manager",
+    "worker_manager",
 ]

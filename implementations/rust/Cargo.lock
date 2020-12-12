@@ -818,6 +818,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1482821306169ec4d07f6aca392a4681f66c75c9918aa49641a2595db64053cb"
 
 [[package]]
+name = "libc-print"
+version = "0.1.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e70323535c8d481cbfd9a0996538a06861ee0c2fb082cff05b8ac87e272ba7ca"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "libloading"
 version = "0.6.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -901,12 +910,16 @@ dependencies = [
  "ockam-common",
  "ockam-kex",
  "ockam-message",
+ "ockam-message-router",
+ "ockam-no-std-traits",
+ "ockam-node",
  "ockam-queue-topic",
  "ockam-router",
  "ockam-system",
+ "ockam-tcp-manager",
  "ockam-transport",
  "ockam-vault",
- "ockam-worker",
+ "ockam-worker-manager",
  "rand",
 ]
 
@@ -937,21 +950,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "ockam-message-router"
+version = "0.1.0"
+dependencies = [
+ "libc",
+ "libc-print",
+ "ockam-message",
+ "ockam-no-std-traits",
+]
+
+[[package]]
+name = "ockam-no-std-traits"
+version = "0.1.0"
+dependencies = [
+ "ockam-message",
+]
+
+[[package]]
 name = "ockam-node"
 version = "0.1.0"
 dependencies = [
- "hex",
- "ockam",
- "ockam-common",
- "ockam-kex",
+ "libc",
+ "libc-print",
  "ockam-message",
- "ockam-router",
- "ockam-system",
- "ockam-transport",
- "ockam-vault",
- "ockam-worker",
- "rand",
- "structopt",
+ "ockam-message-router",
+ "ockam-no-std-traits",
+ "ockam-tcp-manager",
+ "ockam-worker-manager",
 ]
 
 [[package]]
@@ -976,6 +1001,16 @@ version = "0.1.0"
 dependencies = [
  "ockam-message",
  "ockam-vault",
+]
+
+[[package]]
+name = "ockam-tcp-manager"
+version = "0.1.0"
+dependencies = [
+ "libc",
+ "libc-print",
+ "ockam-message",
+ "ockam-no-std-traits",
 ]
 
 [[package]]
@@ -1021,15 +1056,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "ockam-worker"
+name = "ockam-worker-manager"
 version = "0.1.0"
 dependencies = [
  "hashbrown",
- "hex",
- "ockam-common",
+ "libc",
+ "libc-print",
  "ockam-message",
- "ockam-router",
- "ockam-system",
+ "ockam-no-std-traits",
 ]
 
 [[package]]
